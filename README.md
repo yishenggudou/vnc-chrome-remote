@@ -33,7 +33,15 @@ docker run -p 6900:5900 \
   registry.dafengstudio.cn/vnc-chrome-remote:0.0.1
 ```
 
+### connect va vnc
+
+![img_1.png](img_1.png)
+
+https://www.realvnc.com/en/connect/download/viewer/
+
 ### use via selenium
+
+
 
 ```python
 from selenium import webdriver  
