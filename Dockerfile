@@ -4,7 +4,6 @@ LABEL maintainer="Tomohisa Kusano <siomiz@gmail.com>"
 
 ENV VNC_SCREEN_SIZE=1024x768
 
-COPY copyables /
 
 RUN apt-get update \
 	&& DEBIAN_FRONTEND=noninteractive apt-get upgrade -y \
@@ -30,6 +29,9 @@ RUN apt-key add /tmp/linux_signing_key.pub \
 	&& dpkg -i /tmp/google-chrome-stable_current_amd64.deb \
 	|| dpkg -i /tmp/chrome-remote-desktop_current_amd64.deb \
 	|| DEBIAN_FRONTEND=noninteractive apt-get -f --yes install
+
+COPY copyables /
+
 
 RUN apt-get clean \
 	&& rm -rf /var/cache/* /var/log/apt/* /var/lib/apt/lists/* /tmp/* \
