@@ -56,7 +56,7 @@ print(driver.title)
 
 then you will see the vnc client 
 
-![Kapture 2023-06-16 at 23.17.56.gif](Kapture%202023-06-16%20at%2023.17.56.gif)
+[Kapture 2023-06-16 at 23.17.56.gif](Kapture%202023-06-16%20at%2023.17.56.gif)
 
 and 
 
