@@ -11,6 +11,12 @@ RUN apt-get update \
 	&& DEBIAN_FRONTEND=noninteractive \
 	apt-get install -y --no-install-recommends \
 	gnupg2 \
+    vim \
+    sudo \
+    python3-pip \
+    curl \
+    nginx \
+    net-tools \
 	fonts-noto-cjk \
 	pulseaudio \
 	supervisor \
@@ -44,12 +50,19 @@ RUN apt-get clean \
 		session.screen0.defaultDeco:    NONE\n\
 	' >> /home/chrome/.fluxbox/init \
 	&& chown -R chrome:chrome /home/chrome/.config /home/chrome/.fluxbox
+ENV PATH="$PATH:/home/chrome/.local/bin"
+WORKDIR /home/chrome
+ADD proxy /home/chrome/proxy
+RUN mkdir -p /home/chrome/logs
+RUN chmod +x /home/chrome/proxy/boot.sh
+RUN chmod -R 777 /home/chrome
 
 USER chrome
-
 VOLUME ["/home/chrome"]
 
-WORKDIR /home/chrome
+RUN mkdir -p /home/chrome/userData
+RUN mkdir -p /home/chrome/proxy
+
 
 EXPOSE 5900
 
