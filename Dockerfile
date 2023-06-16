@@ -56,7 +56,18 @@ ADD proxy /home/chrome/proxy
 RUN mkdir -p /home/chrome/logs
 RUN chmod +x /home/chrome/proxy/boot.sh
 RUN chmod -R 777 /home/chrome
-
+#
+#
+#
+RUN mkdir -p /var/log/nginx
+RUN mkdir -p /var/lib/nginx
+RUN chmod -R 777 /var/lib/nginx
+RUN chmod -R 777 /var/log/nginx
+RUN touch /run/nginx.pid
+RUN chmod 777 /run/nginx.pid
+#
+#
+#
 USER chrome
 VOLUME ["/home/chrome"]
 
