@@ -1,5 +1,5 @@
 PROJECT_DIR 			:=  $(shell pwd)
-BASE_IMAGE_VERSION		=0.0.1
+BASE_IMAGE_VERSION		=0.0.1.RELEASE
 BASE_IMAGE_NAME			=registry.dafengstudio.cn/vnc-chrome-remote:${BASE_IMAGE_VERSION}
 DOCKER_CONTAINER_NAME	=chrome-remote
 
