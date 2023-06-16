@@ -18,6 +18,21 @@ make build-image
 make test-run
 ```
 
+or manaue run via docker
+
+```bash
+mkdir -p ${PWD}/user-profile
+mkdir -p ${PWD}/downloads
+docker run -p 6900:5900 \
+  -p 9222:9223 \
+  --cpus=".8" \
+  --memory="512g" \
+  -v ${PWD}/user-profile:/home/chrome/userData \
+  -v ${PWD}/downloads:/home/chrome/Downloads  \
+  --name chrome-remote \
+  registry.dafengstudio.cn/vnc-chrome-remote:0.0.1
+```
+
 ### use via selenium
 
 ```python
