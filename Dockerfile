@@ -63,8 +63,7 @@ RUN mkdir -p /var/log/nginx
 RUN mkdir -p /var/lib/nginx
 RUN chmod -R 777 /var/lib/nginx
 RUN chmod -R 777 /var/log/nginx
-RUN touch /run/nginx.pid
-RUN chmod 777 /run/nginx.pid
+
 #
 #
 #
