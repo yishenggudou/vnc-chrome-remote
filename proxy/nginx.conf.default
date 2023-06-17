@@ -1,6 +1,6 @@
 pid /home/chrome/proxy/nginx.pid;
 include /etc/nginx/modules-enabled/*.conf;
-worker_processes 1;
+worker_processes 2;
 
 events {
         multi_accept       on;
@@ -62,7 +62,7 @@ http {
             proxy_redirect off;
             proxy_pass http://127.0.0.1:9222;
             sub_filter_types *;
-            sub_filter '127.0.0.1:9222' '$host:9222';
+            sub_filter '127.0.0.1:9222' '$host:D_EXPOSE_PORT';
             sub_filter_once off;
           }
 
