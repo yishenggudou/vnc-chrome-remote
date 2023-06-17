@@ -62,11 +62,12 @@ RUN mkdir -p /var/log/nginx
 RUN mkdir -p /var/lib/nginx
 RUN chmod -R 777 /var/lib/nginx
 RUN chmod -R 777 /var/log/nginx
-
+RUN export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
+RUN DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 #
 #
 #
-USER chrome
+USER root
 VOLUME ["/home/chrome"]
 
 RUN mkdir -p /home/chrome/userData
