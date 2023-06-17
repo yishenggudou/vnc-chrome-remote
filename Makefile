@@ -11,6 +11,9 @@ help:
 .PHONY=help
 
 build-image: ## build docker image --no-cache
+	docker build  . -t ${BASE_IMAGE_NAME}
+
+build-image-no-cache: ## build docker image --no-cache
 	docker build --no-cache . -t ${BASE_IMAGE_NAME}
 
 test-run: ## run local test
