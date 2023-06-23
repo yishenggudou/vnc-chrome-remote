@@ -1,5 +1,5 @@
 PROJECT_DIR 			:=  $(shell pwd)
-BASE_IMAGE_VERSION		=0.0.7.RELEASE
+BASE_IMAGE_VERSION		=0.0.8.RELEASE
 BASE_IMAGE_NAME			=registry.dafengstudio.cn/vnc-chrome-remote:${BASE_IMAGE_VERSION}
 DOCKER_CONTAINER_NAME	=chrome-remote
 
@@ -26,7 +26,7 @@ test-run: ## run local test
 		--memory="512g" \
 		-e EXPOSE_PORT=9222 \
 		-v ${PROJECT_DIR}/user-profile:/home/chrome/userData \
-		-v ${PROJECT_DIR}/downloads:/home/chrome/Downloads  \
+			-v ${PROJECT_DIR}/downloads:/home/chrome/Downloads  \
 		--name ${DOCKER_CONTAINER_NAME} ${BASE_IMAGE_NAME}
 
 shell: ## shell

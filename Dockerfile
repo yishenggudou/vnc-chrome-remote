@@ -53,7 +53,8 @@ ENV PATH="$PATH:/home/chrome/.local/bin"
 WORKDIR /home/chrome
 ADD proxy /home/chrome/proxy
 RUN mkdir -p /home/chrome/logs
-RUN chmod +x /home/chrome/proxy/boot.sh
+RUN chmod +x /home/chrome/proxy/*.sh
+
 RUN chmod -R 777 /home/chrome
 #
 #
@@ -73,6 +74,7 @@ VOLUME ["/home/chrome"]
 RUN mkdir -p /home/chrome/userData
 RUN mkdir -p /home/chrome/proxy
 
+RUN /usr/bin/pip3.10 install Twisted==22.10.0 -i https://mirrors.aliyun.com/pypi/simple/
 
 EXPOSE 5900
 
