@@ -3,7 +3,9 @@ FROM ubuntu:22.04
 LABEL maintainer="Tomohisa Kusano <siomiz@gmail.com>"
 
 ENV VNC_SCREEN_SIZE=1024x768
-
+RUN  cp -a /etc/apt/sources.list /etc/apt/sources.list.bak
+RUN  sed -i "s@http://.*archive.ubuntu.com@http://repo.huaweicloud.com@g" /etc/apt/sources.list
+RUN  sed -i "s@http://.*security.ubuntu.com@http://repo.huaweicloud.com@g" /etc/apt/sources.list
 
 RUN apt-get update \
 	&& DEBIAN_FRONTEND=noninteractive apt-get upgrade -y \
@@ -24,6 +26,7 @@ RUN apt-get update \
 	eterm
 
 ADD chrome/* /tmp/
+
 
 RUN apt-key add /tmp/linux_signing_key.pub \
 	&& dpkg -i /tmp/google-chrome-stable_current_amd64.deb \

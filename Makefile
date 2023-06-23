@@ -22,6 +22,7 @@ test-run: ## run local test
 	docker run \
 		-p 6900:5900 \
 		-p 9222:9223 \
+		-p 9224:2121 \
 		--cpus=".8" \
 		--memory="512g" \
 		-e EXPOSE_PORT=9222 \
