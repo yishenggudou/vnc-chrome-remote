@@ -78,6 +78,7 @@ RUN mkdir -p /home/chrome/userData
 RUN mkdir -p /home/chrome/proxy
 
 RUN /usr/bin/pip3.10 install Twisted==22.10.0 -i https://mirrors.aliyun.com/pypi/simple/
+RUN /usr/bin/pip3.10 install uploadserver==4.2.0 -i https://mirrors.aliyun.com/pypi/simple/
 
 EXPOSE 5900
 

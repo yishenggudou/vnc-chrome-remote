@@ -1,5 +1,5 @@
 PROJECT_DIR 			:=  $(shell pwd)
-BASE_IMAGE_VERSION		=0.0.8.RELEASE
+BASE_IMAGE_VERSION		=0.0.10.RELEASE
 BASE_IMAGE_NAME			=registry.dafengstudio.cn/vnc-chrome-remote:${BASE_IMAGE_VERSION}
 DOCKER_CONTAINER_NAME	=chrome-remote
 
@@ -35,3 +35,6 @@ shell: ## shell
 
 docker-push: ## publish docker image
 	docker push ${BASE_IMAGE_NAME}
+
+docker-clean: ## docker clean
+	docker images|grep vnc-chrome-remote|grep -v ${BASE_IMAGE_VERSION}|awk '{print $$3}'|xargs docker rmi -f
